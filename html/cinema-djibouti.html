@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Cinéma de Djibouti — Revue de films &amp; sketchs</title>
+  <meta name="description" content="Notez les films et sketchs djiboutiens de 1 à 5 étoiles et découvrez la sélection recommandée par Nabiha." />
+  <meta property="og:title" content="Le Cinéma de Djibouti" />
+  <meta property="og:description" content="Revue de films et sketchs djiboutiens — notations de 1 à 5 étoiles, sélection recommandée par Nabiha." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#14110e",
+            panel: "#1c1713",
+            cream: "#f5efe2",
+            gold: "#e6b64d",
+          },
+          fontFamily: {
+            display: ["Fraunces", "serif"],
+            body: ["Inter", "sans-serif"],
+            mono: ['"IBM Plex Mono"', "monospace"],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .rise { animation: rise 600ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+    .rise-2 { animation: rise 600ms cubic-bezier(0.32, 0.72, 0, 1) both; animation-delay: 80ms; }
+    .rise-3 { animation: rise 600ms cubic-bezier(0.32, 0.72, 0, 1) both; animation-delay: 160ms; }
+
+    .grain { position: relative; }
+    .grain::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    .star {
+      color: rgba(245, 239, 226, 0.16);
+      cursor: pointer;
+      transition: color 150ms ease, transform 150ms ease, text-shadow 150ms ease;
+      line-height: 1;
+      padding: 1px;
+      background: none;
+      border: 0;
+      font: inherit;
+    }
+    .star.lit { color: #e6b64d; text-shadow: 0 0 12px rgba(230, 182, 77, 0.35); }
+    .star:active { transform: scale(1.25); }
+    .star:focus-visible { outline: 1px solid rgba(230, 182, 77, 0.6); outline-offset: 2px; border-radius: 2px; }
+    @keyframes pop { 0% { transform: scale(0.6); } 60% { transform: scale(1.3); } 100% { transform: scale(1); } }
+    .star.pop { animation: pop 300ms cubic-bezier(0.32, 0.72, 0, 1); }
+  </style>
+</head>
+<body class="min-h-screen bg-ink font-body text-cream antialiased">
+  <div class="mx-auto max-w-[1080px] px-5 py-10 sm:px-8 sm:py-14">
+
+    <!-- ============ En-tête ============ -->
+    <header class="rise flex items-end justify-between border-b border-cream/10 pb-6">
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-gold/80">Revue · No 03 · Corne de l'Afrique</p>
+        <h1 class="mt-2 font-display text-5xl leading-[0.92] tracking-tight sm:text-7xl">Le Cinéma<br />de <span class="italic text-gold">Djibouti</span></h1>
+        <p class="mt-4 max-w-[46ch] text-pretty text-sm leading-relaxed text-cream/60 sm:hidden">Notez les films et sketchs du pays, de 1 à 5 étoiles — et découvrez la sélection de Nabiha.</p>
+      </div>
+      <div class="hidden text-right font-mono text-[11px] leading-relaxed text-cream/50 sm:block">
+        <p>Notations 1–5</p>
+        <p>Édition d'automne</p>
+      </div>
+    </header>
+
+    <!-- ============ Recommandé par Nabiha ============ -->
+    <section class="rise-2 mt-8 rounded-2xl border border-gold/30 bg-gold/[0.06] p-6 sm:p-8" aria-labelledby="nabiha-title">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="rounded-sm bg-gold px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-ink">Recommandé par Nabiha</span>
+        <span class="font-mono text-[11px] text-cream/50">Sélection personnelle · 2 titres</span>
+      </div>
+
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-5">
+        <!-- Aurore sur le Grand Bara -->
+        <article class="flex items-start gap-4">
+          <div class="grain relative aspect-[4/5] w-24 shrink-0 overflow-hidden rounded-lg">
+            <svg viewBox="0 0 120 150" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Affiche : Aurore sur le Grand Bara">
+              <defs><linearGradient id="gA" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#3a2417"/><stop offset="0.55" stop-color="#8a4f26"/><stop offset="0.8" stop-color="#d98e3f"/>
+              </linearGradient></defs>
+              <rect width="120" height="150" fill="url(#gA)"/>
+              <circle cx="60" cy="94" r="17" fill="#f3c96f" opacity="0.9"/>
+              <path d="M0 106 Q30 98 60 104 T120 102 V150 H0 Z" fill="#241509" opacity="0.85"/>
+              <path d="M0 120 Q40 112 80 119 T120 117 V150 H0 Z" fill="#180d06"/>
+              <g fill="#0d0703"><ellipse cx="61" cy="93" rx="2.4" ry="4.4"/><rect x="59.9" y="95" width="2.4" height="8" rx="1.1"/></g>
+            </svg>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4e_OuNsybvU5r0y07zH7Mq_iTjVRe1cM50FqoEVJ2Qm2rV6YcJQDDRdY&amp;s=10" alt="Affiche : Aurore sur le Grand Bara" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover" />
+          </div>
+          <div class="min-w-0">
+            <h3 id="nabiha-title" class="font-display text-xl leading-tight">Aurore sur le Grand Bara</h3>
+            <p class="mt-1 text-pretty text-sm text-cream/60">Un road-movie silencieux entre sel et sable, d'une beauté qui hante.</p>
+            <div class="stars mt-3 flex gap-0.5 text-lg" data-id="aurore-grand-bara" data-avg="4.6" data-count="12" role="radiogroup" aria-label="Votre note pour Aurore sur le Grand Bara">
+              <button type="button" class="star" aria-label="Noter 1 étoile sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 2 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 3 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 4 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 5 étoiles sur 5">★</button>
+            </div>
+            <p class="mt-1.5 font-mono text-[11px] text-gold"><span class="avg">★ 4,6</span> · <span class="count">12</span> notes</p>
+          </div>
+        </article>
+
+        <!-- Le Marché de Balbala -->
+        <article class="flex items-start gap-4">
+          <div class="grain relative aspect-[4/5] w-24 shrink-0 overflow-hidden rounded-lg">
+            <svg viewBox="0 0 120 150" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Affiche : Le Marché de Balbala">
+              <defs><linearGradient id="gB" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2b1208"/><stop offset="0.5" stop-color="#a34a1f"/><stop offset="0.85" stop-color="#e09a3e"/>
+              </linearGradient></defs>
+              <rect width="120" height="150" fill="url(#gB)"/>
+              <circle cx="88" cy="30" r="13" fill="#f6d98a" opacity="0.85"/>
+              <g>
+                <rect x="6" y="42" width="52" height="12" rx="4" fill="#7c2d12"/>
+                <rect x="10" y="42" width="6" height="12" fill="#f3c96f"/><rect x="22" y="42" width="6" height="12" fill="#f3c96f"/><rect x="34" y="42" width="6" height="12" fill="#f3c96f"/><rect x="46" y="42" width="6" height="12" fill="#f3c96f"/>
+                <rect x="64" y="50" width="48" height="11" rx="4" fill="#5f2a10"/>
+                <rect x="68" y="50" width="6" height="11" fill="#e6b64d"/><rect x="80" y="50" width="6" height="11" fill="#e6b64d"/><rect x="92" y="50" width="6" height="11" fill="#e6b64d"/>
+              </g>
+              <g fill="#1a0a04">
+                <circle cx="18" cy="96" r="9"/><circle cx="34" cy="102" r="11"/><circle cx="52" cy="94" r="9"/><circle cx="70" cy="104" r="11"/><circle cx="88" cy="96" r="9"/><circle cx="104" cy="104" r="8"/>
+              </g>
+              <g fill="#f5efe2" opacity="0.16">
+                <circle cx="30" cy="86" r="4"/><circle cx="64" cy="82" r="4"/><circle cx="96" cy="86" r="4"/>
+              </g>
+            </svg>
+            <img src="https://www.imagesfrancophones.org/uploads/affiche-1847.900x.jpg" alt="Affiche : Le Marché de Balbala" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover" />
+          </div>
+          <div class="min-w-0">
+            <h3 class="font-display text-xl leading-tight">Le Marché de Balbala</h3>
+            <p class="mt-1 text-pretty text-sm text-cream/60">Sketch choral, rires et marchandes, l'Afrique qui parle fort.</p>
+            <div class="stars mt-3 flex gap-0.5 text-lg" data-id="marche-balbala" data-avg="4.8" data-count="9" role="radiogroup" aria-label="Votre note pour Le Marché de Balbala">
+              <button type="button" class="star" aria-label="Noter 1 étoile sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 2 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 3 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 4 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 5 étoiles sur 5">★</button>
+            </div>
+            <p class="mt-1.5 font-mono text-[11px] text-gold"><span class="avg">★ 4,8</span> · <span class="count">9</span> notes</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Catalogue ============ -->
+    <div class="rise-3 mt-10 mb-5 flex flex-wrap items-center gap-4">
+      <p class="font-mono text-[11px] uppercase tracking-[0.25em] text-cream/50">Catalogue · 3 titres</p>
+      <div class="hidden h-px min-w-8 flex-1 bg-cream/10 sm:block"></div>
+      <div class="flex gap-2 font-mono text-[10px] uppercase tracking-wider" role="group" aria-label="Filtrer le catalogue">
+        <button type="button" class="filter-chip rounded-sm border border-gold/40 px-2 py-1 text-gold" data-filter="tous" aria-pressed="true">Tous</button>
+        <button type="button" class="filter-chip rounded-sm px-2 py-1 text-cream/40 transition-colors hover:text-cream/70" data-filter="film" aria-pressed="false">Films</button>
+        <button type="button" class="filter-chip rounded-sm px-2 py-1 text-cream/40 transition-colors hover:text-cream/70" data-filter="sketch" aria-pressed="false">Sketchs</button>
+      </div>
+    </div>
+
+    <div id="catalogue" class="grid gap-5 sm:grid-cols-3">
+      <!-- Le Pêcheur de Tadjourah -->
+      <article data-type="film" class="rise-2 overflow-hidden rounded-xl border border-cream/10 bg-panel transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-105">
+        <div class="grain relative aspect-[16/10] bg-ink">
+          <svg viewBox="0 0 160 100" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Affiche : Le Pêcheur de Tadjourah">
+            <defs>
+              <linearGradient id="gC" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1c2f38"/><stop offset="0.55" stop-color="#3f5a5e"/><stop offset="0.72" stop-color="#d9a054"/>
+              </linearGradient>
+              <linearGradient id="gSea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2e6b6d"/><stop offset="1" stop-color="#0d2b31"/>
+              </linearGradient>
+            </defs>
+            <rect width="160" height="62" fill="url(#gC)"/>
+            <circle cx="104" cy="48" r="11" fill="#f3c96f" opacity="0.9"/>
+            <rect y="58" width="160" height="42" fill="url(#gSea)"/>
+            <path d="M96 68 q10 6 24 0 l-2 5 q-10 4 -20 0 z" fill="#0a1417"/>
+            <g fill="#0a1417"><ellipse cx="108" cy="56" rx="2" ry="3.4"/><rect x="107" y="58" width="2" height="6" rx="1"/><rect x="108" y="50" width="0.8" height="9"/></g>
+            <path d="M0 78 Q40 74 80 78 T160 76 V100 H0 Z" fill="#0a1e22" opacity="0.7"/>
+          </svg>
+          <img src="https://www.sudplanete.net/_uploads/images/films/BARNI_072026.jpg" alt="Affiche : Le Pêcheur de Tadjourah" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover" />
+        </div>
+        <div class="p-4">
+          <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">Film · 2021</p>
+          <h3 class="mt-1 font-display text-lg leading-tight">Le Pêcheur de Tadjourah</h3>
+          <p class="mt-1 text-pretty text-sm text-cream/60">Un homme, une barque, la mer Rouge et le poids du souvenir.</p>
+          <div class="mt-3 flex items-center justify-between border-t border-cream/10 pt-3">
+            <div class="stars flex gap-0.5 text-xl" data-id="pecheur-tadjourah" data-avg="4.2" data-count="28" role="radiogroup" aria-label="Votre note pour Le Pêcheur de Tadjourah">
+              <button type="button" class="star" aria-label="Noter 1 étoile sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 2 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 3 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 4 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 5 étoiles sur 5">★</button>
+            </div>
+            <p class="font-mono text-[10px] text-cream/50"><span class="avg">★ 4,2</span> · <span class="count">28</span></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Toto et le Taxi -->
+      <article data-type="sketch" class="rise-2 overflow-hidden rounded-xl border border-cream/10 bg-panel transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-105" style="animation-delay: 80ms;">
+        <div class="grain relative aspect-[16/10] bg-ink">
+          <svg viewBox="0 0 160 100" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Affiche : Toto et le Taxi">
+            <defs><linearGradient id="gD" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#241b2e"/><stop offset="0.5" stop-color="#6b3350"/><stop offset="0.75" stop-color="#d97a4a"/>
+            </linearGradient></defs>
+            <rect width="160" height="70" fill="url(#gD)"/>
+            <circle cx="30" cy="24" r="8" fill="#f5efe2" opacity="0.85"/>
+            <g fill="#170f1c">
+              <rect x="0" y="46" width="22" height="28"/><rect x="24" y="36" width="18" height="38"/><rect x="44" y="50" width="26" height="24"/><rect x="72" y="30" width="20" height="44"/><rect x="94" y="44" width="24" height="30"/><rect x="120" y="38" width="18" height="36"/><rect x="140" y="48" width="20" height="26"/>
+            </g>
+            <g fill="#e6b64d">
+              <rect x="27" y="41" width="3" height="4"/><rect x="33" y="48" width="3" height="4"/><rect x="76" y="36" width="3" height="4"/><rect x="82" y="44" width="3" height="4"/><rect x="98" y="50" width="3" height="4"/><rect x="104" y="56" width="3" height="4"/><rect x="124" y="44" width="3" height="4"/><rect x="130" y="52" width="3" height="4"/>
+            </g>
+            <path d="M0 74 Q40 70 80 74 T160 72 V100 H0 Z" fill="#0f0a14"/>
+            <g fill="#0f0a14"><ellipse cx="70" cy="80" rx="3" ry="5"/><rect x="66.5" y="83" width="7" height="8" rx="2"/><ellipse cx="86" cy="82" rx="3" ry="5"/><rect x="82.5" y="85" width="7" height="6" rx="2"/></g>
+          </svg>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWIQw_XwcEEvb4_JP7kh-5IpvVBwEmkC9gcMf2n7s8sg&amp;s=10" alt="Affiche : Toto et le Taxi" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover" />
+        </div>
+        <div class="p-4">
+          <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">Sketch · 2022</p>
+          <h3 class="mt-1 font-display text-lg leading-tight">Toto et le Taxi</h3>
+          <p class="mt-1 text-pretty text-sm text-cream/60">Une course effrénée à travers la ville, dialogues à mitraille.</p>
+          <div class="mt-3 flex items-center justify-between border-t border-cream/10 pt-3">
+            <div class="stars flex gap-0.5 text-xl" data-id="toto-taxi" data-avg="4.9" data-count="41" role="radiogroup" aria-label="Votre note pour Toto et le Taxi">
+              <button type="button" class="star" aria-label="Noter 1 étoile sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 2 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 3 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 4 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 5 étoiles sur 5">★</button>
+            </div>
+            <p class="font-mono text-[10px] text-cream/50"><span class="avg">★ 4,9</span> · <span class="count">41</span></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- La Nuit de Hamoul -->
+      <article data-type="film" class="rise-2 overflow-hidden rounded-xl border border-cream/10 bg-panel transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-105" style="animation-delay: 160ms;">
+        <div class="grain relative aspect-[16/10] bg-ink">
+          <svg viewBox="0 0 160 100" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Affiche : La Nuit de Hamoul">
+            <defs><linearGradient id="gE" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#120e1a"/><stop offset="0.6" stop-color="#2c1f3a"/><stop offset="1" stop-color="#4a2a3e"/>
+            </linearGradient></defs>
+            <rect width="160" height="100" fill="url(#gE)"/>
+            <rect x="30" y="30" width="100" height="60" fill="#1f1630"/>
+            <rect x="30" y="30" width="100" height="4" fill="#160f24"/>
+            <path d="M70 90 v-26 a10 10 0 0 1 20 0 v26 z" fill="#e6b64d" opacity="0.75"/>
+            <path d="M70 90 v-26 a10 10 0 0 1 20 0 v26 z" fill="none" stroke="#f3c96f" stroke-opacity="0.4"/>
+            <path d="M36 26 Q80 14 124 26" fill="none" stroke="#8a7a55" stroke-width="1" stroke-opacity="0.6"/>
+            <g fill="#f3c96f">
+              <circle cx="44" cy="23" r="2"/><circle cx="58" cy="19" r="2"/><circle cx="72" cy="17.5" r="2"/><circle cx="86" cy="17.5" r="2"/><circle cx="100" cy="19" r="2"/><circle cx="114" cy="23" r="2"/>
+            </g>
+            <g fill="#f5efe2" opacity="0.12"><rect x="40" y="44" width="14" height="18" rx="2"/><rect x="106" y="44" width="14" height="18" rx="2"/></g>
+          </svg>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqx9snqaRrbrn2FJMQepsMB5sDlgmMNaZd7XB8js4P-w&amp;s=10" alt="Affiche : La Nuit de Hamoul" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover" />
+        </div>
+        <div class="p-4">
+          <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">Film · 2019</p>
+          <h3 class="mt-1 font-display text-lg leading-tight">La Nuit de Hamoul</h3>
+          <p class="mt-1 text-pretty text-sm text-cream/60">Récit choral, une fête de quartier qui bascule en drame intime.</p>
+          <div class="mt-3 flex items-center justify-between border-t border-cream/10 pt-3">
+            <div class="stars flex gap-0.5 text-xl" data-id="nuit-hamoul" data-avg="3.5" data-count="17" role="radiogroup" aria-label="Votre note pour La Nuit de Hamoul">
+              <button type="button" class="star" aria-label="Noter 1 étoile sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 2 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 3 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 4 étoiles sur 5">★</button>
+              <button type="button" class="star" aria-label="Noter 5 étoiles sur 5">★</button>
+            </div>
+            <p class="font-mono text-[10px] text-cream/50"><span class="avg">★ 3,5</span> · <span class="count">17</span></p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- ============ Acteurs & Comédiens ============ -->
+    <section class="mt-12" aria-labelledby="acteurs-title">
+      <div class="mb-5 flex flex-wrap items-center gap-4">
+        <h2 id="acteurs-title" class="font-mono text-[11px] uppercase tracking-[0.25em] text-cream/50">Acteurs &amp; Comédiens de Djibouti</h2>
+        <div class="hidden h-px min-w-8 flex-1 bg-cream/10 md:block"></div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <article class="flex items-center gap-4 overflow-hidden rounded-xl border border-cream/10 bg-panel p-4 transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-105">
+          <div class="grain relative aspect-square w-20 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-gold/40 to-ink">
+            <img src="images/rachid-nour.png" alt="Portrait de Rachid Nour" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-top" />
+          </div>
+          <div class="min-w-0">
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">Comédien</p>
+            <h3 class="mt-1 font-display text-lg leading-tight text-cream">Rachid Nour</h3>
+            <p class="mt-1 text-pretty text-sm text-cream/60">Humoriste populaire, sketches très djiboutiens.</p>
+          </div>
+        </article>
+
+        <article class="flex items-center gap-4 overflow-hidden rounded-xl border border-cream/10 bg-panel p-4 transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-105">
+          <div class="grain relative aspect-square w-20 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-gold/40 to-ink">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqx9snqaRrbrn2FJMQepsMB5sDlgmMNaZd7XB8js4P-w&amp;s=10" alt="Portrait de Gafaneh" loading="lazy" referrerpolicy="no-referrer" class="absolute inset-0 h-full w-full object-cover object-center" />
+          </div>
+          <div class="min-w-0">
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">Acteur</p>
+            <h3 class="mt-1 font-display text-lg leading-tight text-cream">Gafaneh</h3>
+            <p class="mt-1 text-pretty text-sm text-cream/60">Acteur phare de la scène djiboutienne.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="mt-12 flex items-center justify-between border-t border-cream/10 pt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40">
+      <span>Revue du Cinéma Djiboutien</span>
+      <span>Noter · 1–5 étoiles</span>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+      var fmt = function (n) { return n.toFixed(1).replace(".", ","); };
+
+      document.querySelectorAll(".stars").forEach(function (box) {
+        var id = box.getAttribute("data-id");
+        var baseAvg = parseFloat(box.getAttribute("data-avg"));
+        var baseCount = parseInt(box.getAttribute("data-count"), 10);
+        var stars = Array.prototype.slice.call(box.querySelectorAll(".star"));
+        var container = box.closest("article") || box.closest("section");
+        var avgEl = container.querySelector(".avg");
+        var countEl = container.querySelector(".count");
+
+        var current = parseInt(window.localStorage.getItem("note-" + id) || "0", 10);
+
+        function paint(n) {
+          stars.forEach(function (s, i) { s.classList.toggle("lit", i < n); });
+        }
+
+        function refresh() {
+          paint(current);
+          var shown = current ? (baseAvg * baseCount + current) / (baseCount + 1) : baseAvg;
+          var shownCount = current ? baseCount + 1 : baseCount;
+          if (avgEl) avgEl.textContent = "★ " + fmt(shown);
+          if (countEl) countEl.textContent = String(shownCount);
+        }
+
+        stars.forEach(function (star, i) {
+          star.addEventListener("mouseenter", function () { paint(i + 1); });
+          star.addEventListener("focus", function () { paint(i + 1); });
+          star.addEventListener("click", function () {
+            current = i + 1;
+            window.localStorage.setItem("note-" + id, String(current));
+            star.classList.remove("pop");
+            void star.offsetWidth;
+            star.classList.add("pop");
+            refresh();
+          });
+        });
+        box.addEventListener("mouseleave", function () { paint(current); });
+        box.addEventListener("blur", function () { paint(current); }, true);
+        refresh();
+      });
+
+      var chips = Array.prototype.slice.call(document.querySelectorAll(".filter-chip"));
+      var cards = Array.prototype.slice.call(document.querySelectorAll("#catalogue [data-type]"));
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          var f = chip.getAttribute("data-filter");
+          chips.forEach(function (c) {
+            var active = c === chip;
+            c.classList.toggle("text-gold", active);
+            c.classList.toggle("border-gold/40", active);
+            c.classList.toggle("border-transparent", !active);
+            c.classList.toggle("text-cream/40", !active);
+            c.setAttribute("aria-pressed", String(active));
+          });
+          cards.forEach(function (card) {
+            card.classList.toggle("hidden", f !== "tous" && card.getAttribute("data-type") !== f);
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
